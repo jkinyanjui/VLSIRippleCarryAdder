@@ -1,0 +1,22 @@
+#VHDL FSM Example
+fsm:
+        ghdl -a rc_adder.vhd
+        ghdl -a rc_adder_tb.vhd
+        ghdl -e Ripple_TB
+        ghdl -r Ripple_TB --wave=./Ripple_TB.ghw --stop-time=40ns
+        
+        
+verilog: 
+        yosys -m ghdl -p 'ghdl rc_adder.vhd -e rc_adder; write_verilog rc_adder.v'      
+        
+        
+clean:
+        rm *.o
+        rm *.cf
+        rm *.ghw
+        rm rc_adder
+        rm rc_adder_tb
+~                                                                               
+~                                                                               
+~                                                                               
+~             
